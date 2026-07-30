@@ -36,6 +36,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+body.lightbox-open {
+  overflow: hidden;
+}
+
 body::before {
   position: fixed;
   inset: 0;
@@ -89,16 +93,26 @@ img {
 }
 
 .brand-mark {
+  position: relative;
   display: grid;
-  width: 36px;
-  height: 36px;
+  width: 42px;
+  height: 42px;
   place-items: center;
-  border: 1px solid rgba(66, 211, 146, 0.55);
-  border-radius: 10px;
-  background: rgba(66, 211, 146, 0.08);
-  color: var(--emerald);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(79, 195, 247, 0.42);
+  border-radius: 13px;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(240, 189, 78, 0.2), transparent 45%),
+    linear-gradient(145deg, rgba(66, 211, 146, 0.12), rgba(79, 195, 247, 0.08));
+  box-shadow:
+    inset 0 0 20px rgba(79, 195, 247, 0.06),
+    0 6px 24px rgba(0, 0, 0, 0.18);
+}
+
+.brand-mark svg {
+  width: 33px;
+  height: 33px;
+  filter: drop-shadow(0 2px 8px rgba(66, 211, 146, 0.2));
 }
 
 .site-header nav {
@@ -566,13 +580,19 @@ img {
   align-self: center;
 }
 
-.urdu-gallery figure,
-.logitruck-gallery figure {
+.gallery-trigger {
+  position: relative;
+  margin: 0;
+  padding: 0;
   margin: 0;
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 12px;
   background: #08202b;
+  color: inherit;
+  cursor: zoom-in;
+  font: inherit;
+  text-align: left;
 }
 
 .urdu-gallery img,
@@ -583,9 +603,54 @@ img {
   transition: transform 380ms ease;
 }
 
-.urdu-gallery figure:hover img,
-.logitruck-gallery figure:hover img {
-  transform: scale(1.025);
+.gallery-trigger:hover img,
+.gallery-trigger:focus-visible img {
+  transform: scale(1.035);
+}
+
+.gallery-trigger > span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 42px 16px 14px;
+  background: linear-gradient(to top, rgba(3, 20, 28, 0.97), transparent);
+  color: #e5ece9;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.gallery-trigger > strong {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 7px 10px;
+  border: 1px solid rgba(66, 211, 146, 0.4);
+  border-radius: 999px;
+  background: rgba(4, 29, 38, 0.88);
+  color: var(--emerald);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.gallery-trigger:hover > span,
+.gallery-trigger:hover > strong,
+.gallery-trigger:focus-visible > span,
+.gallery-trigger:focus-visible > strong {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-trigger:focus-visible {
+  outline: 2px solid var(--emerald);
+  outline-offset: 3px;
 }
 
 .urdu-main {
@@ -593,8 +658,33 @@ img {
   aspect-ratio: 16 / 8.4;
 }
 
-.urdu-gallery figure:not(.urdu-main) {
+.urdu-gallery .gallery-trigger:not(.urdu-main) {
   aspect-ratio: 16 / 9.7;
+}
+
+.project-demo {
+  grid-column: 1 / -1;
+  scroll-margin-top: 108px;
+  padding: 12px;
+  border: 1px solid rgba(66, 211, 146, 0.24);
+  border-radius: 18px;
+  background: rgba(2, 18, 24, 0.72);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+.project-demo video {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  background: #04171f;
+  aspect-ratio: 16 / 9;
+}
+
+.project-demo p {
+  margin: 13px 7px 5px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
 }
 
 .logitruck-project {
@@ -613,6 +703,10 @@ img {
 }
 
 .logitruck-gallery figure {
+  aspect-ratio: 16 / 10;
+}
+
+.logitruck-gallery .gallery-trigger {
   aspect-ratio: 16 / 10;
 }
 
@@ -653,6 +747,112 @@ img {
 
 .video-label span {
   color: var(--gold);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 72px 82px;
+  background: rgba(1, 11, 16, 0.94);
+  backdrop-filter: blur(18px);
+  animation: lightbox-in 180ms ease-out;
+}
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.lightbox-content {
+  display: grid;
+  width: min(100%, 1440px);
+  max-height: calc(100vh - 100px);
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(124, 175, 176, 0.28);
+  border-radius: 18px;
+  background: #071f2b;
+  box-shadow: 0 35px 120px rgba(0, 0, 0, 0.55);
+}
+
+.lightbox-content img {
+  width: 100%;
+  min-height: 0;
+  max-height: calc(100vh - 180px);
+  object-fit: contain;
+}
+
+.lightbox-content figcaption {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  min-height: 70px;
+  padding: 16px 22px;
+  color: #dce5e2;
+  font-size: 14px;
+}
+
+.lightbox-content figcaption span {
+  flex: 0 0 auto;
+  color: var(--gold);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+}
+
+.lightbox-close,
+.lightbox-arrow {
+  position: fixed;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(124, 175, 176, 0.28);
+  border-radius: 50%;
+  background: rgba(9, 36, 46, 0.94);
+  color: var(--ink);
+  cursor: pointer;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.lightbox-close:hover,
+.lightbox-arrow:hover {
+  border-color: var(--emerald);
+  background: #10313d;
+  transform: scale(1.05);
+}
+
+.lightbox-close {
+  top: 22px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  font-size: 28px;
+}
+
+.lightbox-arrow {
+  top: 50%;
+  width: 52px;
+  height: 52px;
+  font-size: 42px;
+  transform: translateY(-50%);
+}
+
+.lightbox-arrow:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.lightbox-previous {
+  left: 18px;
+}
+
+.lightbox-next {
+  right: 18px;
 }
 
 .experience-section {
@@ -966,10 +1166,50 @@ footer {
     grid-column: auto;
   }
 
-  .urdu-gallery figure,
-  .urdu-gallery figure:not(.urdu-main),
-  .logitruck-gallery figure {
+  .urdu-gallery .gallery-trigger,
+  .urdu-gallery .gallery-trigger:not(.urdu-main),
+  .logitruck-gallery .gallery-trigger {
     aspect-ratio: 16 / 10;
+  }
+
+  .project-demo {
+    grid-column: auto;
+  }
+
+  .gallery-trigger > span,
+  .gallery-trigger > strong {
+    opacity: 1;
+    transform: none;
+  }
+
+  .lightbox {
+    padding: 72px 14px 24px;
+  }
+
+  .lightbox-arrow {
+    top: auto;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .lightbox-previous {
+    left: calc(50% - 54px);
+  }
+
+  .lightbox-next {
+    right: calc(50% - 54px);
+  }
+
+  .lightbox-content {
+    align-self: start;
+    max-height: calc(100vh - 112px);
+  }
+
+  .lightbox-content figcaption {
+    min-height: 78px;
+    padding: 14px 16px;
+    font-size: 12px;
   }
 
   .video-shell {

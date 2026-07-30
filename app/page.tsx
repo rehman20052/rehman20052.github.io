@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const skills = {
   "Software Engineering": [
     "Java",
@@ -29,35 +33,141 @@ const skills = {
   ],
 };
 
+type GalleryImage = {
+  src: string;
+  alt: string;
+  caption: string;
+};
+
+const urduScreens: GalleryImage[] = [
+  {
+    src: "/images/urdu-seekho/dashboard.png",
+    alt: "UrduSeekho learner dashboard",
+    caption: "Personal dashboard with daily goals, streaks, XP, and progression.",
+  },
+  {
+    src: "/images/urdu-seekho/learn.png",
+    alt: "UrduSeekho structured learning paths",
+    caption: "Guided paths for reading, speaking, fluency, and Urdu grammar.",
+  },
+  {
+    src: "/images/urdu-seekho/practice.png",
+    alt: "UrduSeekho practice modes",
+    caption: "Focused review for mistakes, vocabulary, sentences, and listening.",
+  },
+];
+
 const logiScreens = [
   {
     src: "/images/logitruck/dashboard-demo.png",
     alt: "LogiTruck operations dashboard with fleet metrics and recent shipments",
+    caption: "Operations dashboard with fleet availability and shipment activity.",
   },
   {
     src: "/images/logitruck/shipment-management-demo.png",
     alt: "LogiTruck shipment management table",
+    caption: "Shipment tracking with routes, assignments, dates, and delivery status.",
   },
   {
     src: "/images/logitruck/truck-management-demo.png",
     alt: "LogiTruck fleet management table",
+    caption: "Fleet records with capacity, mileage, drivers, and availability.",
   },
   {
     src: "/images/logitruck/maintenance-management-demo.png",
     alt: "LogiTruck maintenance management table",
+    caption: "Scheduled maintenance records connected to the active truck fleet.",
   },
   {
     src: "/images/logitruck/driver-management-demo.png",
     alt: "LogiTruck driver management table",
+    caption: "Driver records with compliance, endorsements, and assignment status.",
   },
-];
+] satisfies GalleryImage[];
+
+function BrandMark() {
+  return (
+    <span className="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 48 48" role="img">
+        <defs>
+          <linearGradient id="brand-gradient" x1="5" y1="4" x2="43" y2="45">
+            <stop stopColor="#42d392" />
+            <stop offset=".52" stopColor="#4fc3f7" />
+            <stop offset="1" stopColor="#f0bd4e" />
+          </linearGradient>
+        </defs>
+        <path d="M11 35 22 9l4 10h9l5 16h-7l-3-9H18l-3 9Z" fill="url(#brand-gradient)" />
+        <circle cx="11" cy="35" r="3.2" fill="#42d392" />
+        <circle cx="22" cy="9" r="3.2" fill="#4fc3f7" />
+        <circle cx="40" cy="35" r="3.2" fill="#f0bd4e" />
+        <path d="M18 26h12" stroke="#061a23" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    </span>
+  );
+}
 
 export default function Home() {
+  const [gallery, setGallery] = useState<{
+    items: GalleryImage[];
+    index: number;
+  } | null>(null);
+
+  useEffect(() => {
+    if (!gallery) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setGallery(null);
+      if (event.key === "ArrowRight") {
+        setGallery((current) =>
+          current
+            ? { ...current, index: (current.index + 1) % current.items.length }
+            : null,
+        );
+      }
+      if (event.key === "ArrowLeft") {
+        setGallery((current) =>
+          current
+            ? {
+                ...current,
+                index:
+                  (current.index - 1 + current.items.length) %
+                  current.items.length,
+              }
+            : null,
+        );
+      }
+    };
+
+    document.body.classList.add("lightbox-open");
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.classList.remove("lightbox-open");
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [gallery]);
+
+  const openGallery = (items: GalleryImage[], index: number) => {
+    setGallery({ items, index });
+  };
+
+  const moveGallery = (direction: number) => {
+    setGallery((current) =>
+      current
+        ? {
+            ...current,
+            index:
+              (current.index + direction + current.items.length) %
+              current.items.length,
+          }
+        : null,
+    );
+  };
+
   return (
     <main id="top">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Abdur Rehman, home">
-          <span className="brand-mark">AR</span>
+          <BrandMark />
           <span>Abdur Rehman</span>
         </a>
         <nav aria-label="Primary navigation">
@@ -198,6 +308,9 @@ export default function Home() {
               <span>Python</span>
             </div>
             <div className="project-links">
+              <a className="text-link" href="#urdu-demo">
+                Watch demo ↓
+              </a>
               <a
                 className="text-link"
                 href="https://github.com/rehman20052/UrduSeekho"
@@ -209,24 +322,38 @@ export default function Home() {
             </div>
           </div>
           <div className="urdu-gallery">
-            <figure className="urdu-main">
-              <img
-                src="/images/urdu-seekho/dashboard.png"
-                alt="UrduSeekho learner dashboard"
-              />
-            </figure>
-            <figure>
-              <img
-                src="/images/urdu-seekho/learn.png"
-                alt="UrduSeekho structured learning paths"
-              />
-            </figure>
-            <figure>
-              <img
-                src="/images/urdu-seekho/practice.png"
-                alt="UrduSeekho practice modes"
-              />
-            </figure>
+            <div className="project-demo" id="urdu-demo">
+              <div className="video-label">
+                <span>Product walkthrough</span>
+                58 seconds · No audio required
+              </div>
+              <video
+                controls
+                playsInline
+                preload="metadata"
+                poster="/images/urdu-seekho/dashboard.png"
+              >
+                <source src="/videos/urdu-seekho-demo.mp4" type="video/mp4" />
+                Your browser does not support embedded video.
+              </video>
+              <p>
+                Account and guest access, backend-saved progress, guided lessons,
+                grammar, personal voice prompts, spoken responses, and mistake review.
+              </p>
+            </div>
+            {urduScreens.map((screen, index) => (
+              <button
+                className={`gallery-trigger ${index === 0 ? "urdu-main" : ""}`}
+                key={screen.src}
+                type="button"
+                onClick={() => openGallery(urduScreens, index)}
+                aria-label={`Expand: ${screen.caption}`}
+              >
+                <img src={screen.src} alt={screen.alt} />
+                <span>{screen.caption}</span>
+                <strong aria-hidden="true">Expand ↗</strong>
+              </button>
+            ))}
           </div>
         </article>
 
@@ -274,9 +401,17 @@ export default function Home() {
           </div>
           <div className="logitruck-gallery">
             {logiScreens.map((screen, index) => (
-              <figure className={index === 0 ? "screen-featured" : ""} key={screen.src}>
+              <button
+                className={`gallery-trigger ${index === 0 ? "screen-featured" : ""}`}
+                key={screen.src}
+                type="button"
+                onClick={() => openGallery(logiScreens, index)}
+                aria-label={`Expand: ${screen.caption}`}
+              >
                 <img src={screen.src} alt={screen.alt} />
-              </figure>
+                <span>{screen.caption}</span>
+                <strong aria-hidden="true">Expand ↗</strong>
+              </button>
             ))}
           </div>
         </article>
@@ -466,7 +601,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-brand">
-          <span className="brand-mark">AR</span>
+          <BrandMark />
           <div>
             <strong>Abdur Rehman</strong>
             <span>Software · Security · Systems</span>
@@ -487,6 +622,66 @@ export default function Home() {
         </div>
         <p>© 2026 Abdur Rehman</p>
       </footer>
+
+      {gallery ? (
+        <div
+          className="lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Expanded project image"
+          onClick={() => setGallery(null)}
+        >
+          <button
+            className="lightbox-close"
+            type="button"
+            onClick={() => setGallery(null)}
+            aria-label="Close expanded image"
+          >
+            ×
+          </button>
+          {gallery.items.length > 1 ? (
+            <>
+              <button
+                className="lightbox-arrow lightbox-previous"
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  moveGallery(-1);
+                }}
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+              <button
+                className="lightbox-arrow lightbox-next"
+                type="button"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  moveGallery(1);
+                }}
+                aria-label="Next image"
+              >
+                ›
+              </button>
+            </>
+          ) : null}
+          <figure
+            className="lightbox-content"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <img
+              src={gallery.items[gallery.index].src}
+              alt={gallery.items[gallery.index].alt}
+            />
+            <figcaption>
+              <span>
+                {gallery.index + 1} / {gallery.items.length}
+              </span>
+              {gallery.items[gallery.index].caption}
+            </figcaption>
+          </figure>
+        </div>
+      ) : null}
     </main>
   );
 }

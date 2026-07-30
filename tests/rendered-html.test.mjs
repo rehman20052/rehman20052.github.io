@@ -56,14 +56,17 @@ test("ships portfolio assets and absolute social metadata", async () => {
     access(new URL("../public/files/abdur-rehman-resume.pdf", import.meta.url)),
     access(new URL("../public/images/urdu-seekho/dashboard.png", import.meta.url)),
     access(new URL("../public/images/logitruck/dashboard-demo.png", import.meta.url)),
+    access(new URL("../public/videos/urdu-seekho-demo.mp4", import.meta.url)),
   ]);
 
-  assert.match(layout, /x-forwarded-host/);
+  assert.match(layout, /https:\/\/rehman20052\.github\.io/);
   assert.match(layout, /summary_large_image/);
   assert.match(layout, /og\.png/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
 
   const response = await render();
   const html = await response.text();
-  assert.match(html, /https:\/\/portfolio\.example\/og\.png/);
+  assert.match(html, /https:\/\/rehman20052\.github\.io\/og\.png/);
+  assert.match(html, /\/videos\/urdu-seekho-demo\.mp4/);
+  assert.match(html, /Expand: Personal dashboard/);
 });
