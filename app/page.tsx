@@ -159,7 +159,7 @@ export default function Home() {
           <a href="#contact">Contact</a>
         </nav>
         <a className="header-cta" href="/files/abdur-rehman-resume.pdf" download>
-          Résumé
+          Resume
         </a>
       </header>
 
@@ -581,7 +581,7 @@ export default function Home() {
               rabdur2005@gmail.com
             </a>
             <a className="button button-secondary" href="/files/abdur-rehman-resume.pdf">
-              View résumé
+              View resume
             </a>
           </div>
         </div>
