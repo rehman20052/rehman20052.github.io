@@ -10,8 +10,9 @@ const skills = {
     "TypeScript",
     "SQL",
     "React Native",
+    "Expo Router",
     "JavaFX",
-    "REST APIs",
+    "RESTful APIs",
   ],
   "Secure Systems": [
     "Assembly",
@@ -19,16 +20,18 @@ const skills = {
     "FPGA",
     "Processor Verification",
     "Cadence Xcelium",
+    "Cadence Virtuoso ViVa",
     "Waveform Analysis",
     "Linux",
   ],
   "Cloud & Tools": [
-    "Expo",
     "Supabase",
     "Firestore",
     "Git",
     "GitHub",
     "GitLab",
+    "Vim",
+    "IntelliJ IDEA",
     "Azure Data Studio",
   ],
 };
@@ -206,9 +209,9 @@ export default function Home() {
             <span>interface to the architecture.</span>
           </h1>
           <p className="hero-intro">
-            I&apos;m Abdur Rehman, a Computer Science student and secure-systems
-            intern working across processor verification, cross-platform
-            applications, and cloud-integrated software.
+            I&apos;m Abdur Rehman, a Computer Science student with two internship
+            terms in secure processor verification, plus full-stack mobile
+            development and software engineering project experience.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">
@@ -511,12 +514,14 @@ export default function Home() {
               <div className="timeline-date">2025 · 2026</div>
               <div className="timeline-copy">
                 <p className="timeline-org">Air Force Research Laboratory</p>
-                <h3>RI Intern · Secure Processor Verification</h3>
+                <h3>Secure Processor Intern</h3>
                 <p>
-                  Developed assembly-level regression tests for a custom secure
-                  processor, traced execution in Cadence Xcelium and ViVa, and
-                  worked with hardware engineers to verify security-feature
-                  fixes against design specifications.
+                  Restructured a monolithic assembly test suite into seven
+                  standalone regression tests, identified two critical hardware
+                  bugs, and fixed a silent test-harness failure that had been
+                  masking false passes. Traced a cache-controller lockup through
+                  Xcelium and ViVa waveforms to give design engineers a precise
+                  starting point for the fix.
                 </p>
                 <div className="tag-list">
                   <span>Assembly</span>
@@ -530,12 +535,13 @@ export default function Home() {
               <div className="timeline-date">Summer 2024</div>
               <div className="timeline-copy">
                 <p className="timeline-org">Farmingdale State College · SURI</p>
-                <h3>Undergraduate Cybersecurity Researcher</h3>
+                <h3>AI Security Researcher</h3>
                 <p>
-                  Researched machine learning and NLP techniques for detecting
-                  network anomalies, examined bias and privacy in AI security
-                  systems, and presented the work at the SURI and IGNITE
-                  symposia.
+                  Applied machine learning and NLP models to network-traffic
+                  datasets to detect anomalies and classify malicious activity,
+                  evaluated bias and data-privacy risks, and presented the work
+                  at the SURI and IGNITE symposia. Earned a Microcredential in
+                  Research.
                 </p>
                 <div className="tag-list">
                   <span>Cybersecurity</span>
@@ -577,7 +583,9 @@ export default function Home() {
           <div>
             <p className="eyebrow">Education</p>
             <h3>Farmingdale State College, SUNY</h3>
-            <p>Bachelor of Science in Computer Science · Expected Fall 2026</p>
+            <p>
+              Bachelor of Science in Computer Science · Expected December 2026
+            </p>
           </div>
           <div className="education-stat">
             <strong>3.71</strong>

@@ -39,6 +39,10 @@ test("server-renders Abdur Rehman's complete portfolio", async () => {
   assert.match(html, /LogiTruck/);
   assert.match(html, /Lazy Chef/);
   assert.match(html, /Air Force Research Laboratory/);
+  assert.match(html, /seven\s+standalone regression tests/);
+  assert.match(html, /two critical hardware\s+bugs/);
+  assert.match(html, /Expected December 2026/);
+  assert.match(html, /Microcredential in\s+Research/);
   assert.match(html, /rabdur2005@gmail\.com/);
   assert.match(html, /\/files\/abdur-rehman-resume\.pdf/);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/);
