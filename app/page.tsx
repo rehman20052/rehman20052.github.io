@@ -525,16 +525,6 @@ export default function Home() {
                   <span>Waveform Analysis</span>
                 </div>
               </div>
-              <figure className="experience-visual">
-                <img
-                  src="/images/experience/secure-processor-verification.jpg"
-                  alt="Abstract secure processor verification with circuit routes and waveform traces"
-                />
-                <figcaption>
-                  <span>Verification layer</span>
-                  Assembly tests · execution traces · security checks
-                </figcaption>
-              </figure>
             </article>
             <article>
               <div className="timeline-date">Summer 2024</div>
@@ -554,16 +544,6 @@ export default function Home() {
                   <span>Research</span>
                 </div>
               </div>
-              <figure className="experience-visual">
-                <img
-                  src="/images/experience/cybersecurity-research.jpg"
-                  alt="Abstract machine learning network anomaly detection visualization"
-                />
-                <figcaption>
-                  <span>Research focus</span>
-                  Network anomalies · machine learning · responsible AI
-                </figcaption>
-              </figure>
             </article>
           </div>
         </div>
