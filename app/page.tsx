@@ -203,15 +203,15 @@ export default function Home() {
             <span aria-hidden="true" />
             Open to 2026 opportunities
           </div>
-          <p className="eyebrow">Software · Security · Systems</p>
+          <p className="eyebrow">Hi, I&apos;m Abdur</p>
           <h1 id="hero-heading">
-            I build software that connects the{" "}
-            <span>interface to the architecture.</span>
+            I&apos;m interested in how software works{" "}
+            <span>at every level.</span>
           </h1>
           <p className="hero-intro">
-            I&apos;m Abdur Rehman, a Computer Science student with two internship
-            terms in secure processor verification, plus full-stack mobile
-            development and software engineering project experience.
+            I&apos;m a Computer Science student who enjoys moving between low-level
+            processor verification and software people use directly. Most of my
+            work starts with a problem I genuinely want to understand or solve.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">
@@ -237,8 +237,6 @@ export default function Home() {
         </div>
 
         <div className="portrait-wrap" aria-label="Portrait of Abdur Rehman">
-          <div className="portrait-orbit orbit-one" />
-          <div className="portrait-orbit orbit-two" />
           <div className="portrait-card">
             <img
               src="/images/profile/abdur-rehman.png"
@@ -250,14 +248,6 @@ export default function Home() {
               <span>Currently</span>
               Secure Processor Verification
             </div>
-          </div>
-          <div className="signal-card signal-top">
-            <span>Focus</span>
-            Security-first engineering
-          </div>
-          <div className="signal-card signal-bottom">
-            <strong>3.71</strong>
-            <span>GPA · Dean&apos;s List</span>
           </div>
         </div>
       </section>
@@ -280,28 +270,40 @@ export default function Home() {
       <section className="section-shell work-section" id="work">
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Selected work</p>
-            <h2>Built to solve real problems.</h2>
+            <p className="eyebrow">Projects</p>
+            <h2>Things I&apos;ve built.</h2>
           </div>
           <p>
-            Each project is a different view of how I think: adaptive learning,
-            operational systems, and fast product experimentation.
+            These projects taught me how to design around real users, work with
+            a team, and turn an idea into something functional.
           </p>
         </div>
 
         <article className="project project-featured">
-          <div className="project-number">01</div>
           <div className="project-copy">
             <div className="project-kicker">
-              <span>Flagship project</span>
+              <span>Independent project</span>
               2026 — Present
             </div>
             <h3>UrduSeekho</h3>
             <p className="project-lead">
-              A cross-platform learning system that helps people read Urdu
-              through structured lessons, deliberate practice, and adaptive
-              review.
+              A language-learning app for people who understand some Urdu but
+              want to become confident reading, speaking, and using it correctly.
             </p>
+            <div className="project-story">
+              <span>Why I built it</span>
+              <p>
+                I grew up knowing how to read Urdu, but after moving to the
+                United States I gradually lost touch with the script. I built
+                UrduSeekho to teach myself again—and to help other people in the
+                same position. Many South Asian learners already understand a
+                lot of spoken Urdu through family or Bollywood, yet still get
+                stuck on the script and grammar. The app focuses on that gap,
+                especially sentence structure, masculine and feminine forms,
+                and past and present tense. Duolingo offers Hindi but not Urdu,
+                so I wanted to build the kind of Urdu course I could not find.
+              </p>
+            </div>
             <ul className="project-points">
               <li>
                 Implemented SM-2 spaced repetition with automatically derived
@@ -374,7 +376,6 @@ export default function Home() {
         </article>
 
         <article className="project logitruck-project">
-          <div className="project-number">02</div>
           <div className="project-copy">
             <div className="project-kicker">
               <span>Team lead · 4 developers</span>
@@ -382,8 +383,9 @@ export default function Home() {
             </div>
             <h3>LogiTruck</h3>
             <p className="project-lead">
-              A desktop fleet operations platform for managing trucks, drivers,
-              shipments, and maintenance from one synchronized system.
+              My first experience leading a four-person development team: a
+              desktop system for managing trucks, drivers, shipments, and
+              maintenance in one place.
             </p>
             <ul className="project-points">
               <li>
@@ -433,7 +435,6 @@ export default function Home() {
         </article>
 
         <article className="project lazychef-project">
-          <div className="project-number">03</div>
           <div className="project-copy">
             <div className="project-kicker">
               <span>48-hour hackathon build</span>
@@ -502,11 +503,11 @@ export default function Home() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">Experience & research</p>
-              <h2>From transistors to interfaces.</h2>
+              <h2>What I&apos;ve worked on.</h2>
             </div>
             <p>
-              My work sits at the intersection of hardware assurance,
-              cybersecurity research, and software engineering.
+              I&apos;ve had the chance to work on secure hardware verification and
+              research how machine learning can be used in cybersecurity.
             </p>
           </div>
           <div className="timeline">
@@ -559,11 +560,11 @@ export default function Home() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">Technical toolkit</p>
-            <h2>Depth across the stack.</h2>
+            <h2>What I work with.</h2>
           </div>
           <p>
-            Comfortable moving between low-level execution, application
-            architecture, and the systems that connect them.
+            Tools I&apos;ve used in internships, coursework, research, and the
+            projects above—not a list of everything I have ever tried.
           </p>
         </div>
         <div className="skills-grid">
@@ -601,9 +602,9 @@ export default function Home() {
       <section className="contact-section" id="contact">
         <div className="contact-orb" aria-hidden="true" />
         <div className="section-shell contact-inner">
-          <p className="eyebrow">Let&apos;s connect</p>
+          <p className="eyebrow">Get in touch</p>
           <h2>
-            Building something where <span>security and software</span> meet?
+            Want to talk about <span>security or software?</span>
           </h2>
           <p>
             I&apos;m exploring internships and new-grad opportunities across

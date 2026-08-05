@@ -34,7 +34,9 @@ test("server-renders Abdur Rehman's complete portfolio", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Abdur Rehman — Software, Security &amp; Systems<\/title>/i);
-  assert.match(html, /I build software that connects the/);
+  assert.match(html, /I&#x27;m interested in how software works/);
+  assert.match(html, /Why I built it/);
+  assert.match(html, /Duolingo offers Hindi but not Urdu/);
   assert.match(html, /UrduSeekho/);
   assert.match(html, /LogiTruck/);
   assert.match(html, /Lazy Chef/);

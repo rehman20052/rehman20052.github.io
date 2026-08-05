@@ -4,7 +4,7 @@ import "./globals.css";
 const origin = "https://rehman20052.github.io";
 const title = "Abdur Rehman — Software, Security & Systems";
 const description =
-  "Portfolio of Abdur Rehman, a software engineer and secure-systems developer working across processor verification, cybersecurity, and cross-platform applications.";
+  "Abdur Rehman's portfolio: secure processor verification, cybersecurity research, and software projects including UrduSeekho, LogiTruck, and Lazy Chef.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(origin),

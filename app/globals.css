@@ -29,9 +29,7 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  background:
-    radial-gradient(circle at 80% 12%, rgba(23, 122, 100, 0.18), transparent 26rem),
-    var(--navy);
+  background: var(--navy);
   color: var(--ink);
   font-family: var(--font-geist-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -39,19 +37,6 @@ body {
 
 body.lightbox-open {
   overflow: hidden;
-}
-
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  content: "";
-  background-image:
-    linear-gradient(rgba(119, 168, 169, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(119, 168, 169, 0.045) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom, black, transparent 74%);
 }
 
 a {
@@ -286,12 +271,12 @@ img {
 
 .portrait-card {
   position: absolute;
-  inset: 8% 8% 4% 8%;
+  inset: 4% 8%;
   overflow: hidden;
   border: 1px solid rgba(240, 189, 78, 0.36);
-  border-radius: 38% 38% 24px 24px;
+  border-radius: 22px;
   background: #17333b;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
 }
 
 .portrait-card::after {
@@ -327,61 +312,6 @@ img {
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-}
-
-.portrait-orbit {
-  position: absolute;
-  border: 1px solid rgba(66, 211, 146, 0.2);
-  border-radius: 50%;
-}
-
-.orbit-one {
-  inset: 0 5% 11% 5%;
-  transform: rotate(14deg);
-}
-
-.orbit-two {
-  inset: 9% -4% 3% 13%;
-  border-color: rgba(240, 189, 78, 0.16);
-  transform: rotate(-18deg);
-}
-
-.signal-card {
-  position: absolute;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 14px 16px;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: rgba(9, 36, 46, 0.93);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
-  color: #d8e0dd;
-  font-size: 12px;
-}
-
-.signal-card span {
-  color: var(--muted);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.signal-top {
-  top: 13%;
-  right: -4%;
-}
-
-.signal-bottom {
-  bottom: 3%;
-  left: -3%;
-}
-
-.signal-bottom strong {
-  color: var(--gold);
-  font-size: 25px;
 }
 
 .proof-strip {
@@ -462,23 +392,6 @@ img {
   margin-top: 32px;
 }
 
-.project::before {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  content: "";
-  background: radial-gradient(circle at 80% 10%, rgba(66, 211, 146, 0.09), transparent 25rem);
-}
-
-.project-number {
-  position: absolute;
-  top: 28px;
-  right: 32px;
-  color: rgba(240, 189, 78, 0.45);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 12px;
-}
-
 .project-copy,
 .urdu-gallery,
 .logitruck-gallery,
@@ -514,6 +427,29 @@ img {
   color: #c2cdcc;
   font-size: 18px;
   line-height: 1.65;
+}
+
+.project-story {
+  margin-top: 28px;
+  padding: 22px 0;
+  border-block: 1px solid var(--line);
+}
+
+.project-story > span {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-story p {
+  margin: 0;
+  color: #b9c5c5;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .project-points {
@@ -1147,14 +1083,6 @@ footer {
 
   .portrait-wrap {
     width: min(92%, 450px);
-  }
-
-  .signal-top {
-    right: -2%;
-  }
-
-  .signal-bottom {
-    left: -2%;
   }
 
   .proof-strip {
