@@ -28,6 +28,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background:
     radial-gradient(circle at 80% 12%, rgba(23, 122, 100, 0.18), transparent 26rem),
     var(--navy);
@@ -869,8 +870,9 @@ img {
 
 .timeline article {
   display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 52px;
+  grid-template-columns: 150px minmax(0, 1fr) minmax(300px, 0.72fr);
+  gap: 34px;
+  align-items: center;
   padding: 48px 0;
   border-bottom: 1px solid var(--line);
 }
@@ -895,12 +897,63 @@ img {
   letter-spacing: -0.035em;
 }
 
-.timeline article > div:last-child > p:not(.timeline-org) {
+.timeline-copy > p:not(.timeline-org) {
   max-width: 810px;
   margin: 0;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.72;
+}
+
+.experience-visual {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(124, 175, 176, 0.2);
+  border-radius: 18px;
+  background: #061a23;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
+}
+
+.experience-visual::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  box-shadow: inset 0 0 60px rgba(6, 26, 35, 0.32);
+}
+
+.experience-visual img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.experience-visual:hover img {
+  transform: scale(1.025);
+}
+
+.experience-visual figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  gap: 4px;
+  padding: 44px 16px 15px;
+  background: linear-gradient(to top, rgba(3, 20, 28, 0.97), transparent);
+  color: #d9e3e0;
+  font-size: 10px;
+}
+
+.experience-visual figcaption span {
+  color: var(--gold);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .skills-grid {
@@ -1064,6 +1117,15 @@ footer {
   .skills-grid article {
     min-height: 0;
   }
+
+  .timeline article {
+    grid-template-columns: 130px minmax(0, 1fr);
+  }
+
+  .experience-visual {
+    grid-column: 2;
+    width: min(100%, 620px);
+  }
 }
 
 @media (max-width: 760px) {
@@ -1219,6 +1281,11 @@ footer {
   .timeline article {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .experience-visual {
+    grid-column: auto;
+    width: 100%;
   }
 
   .education-card {

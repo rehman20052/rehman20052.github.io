@@ -90,17 +90,30 @@ function BrandMark() {
     <span className="brand-mark" aria-hidden="true">
       <svg viewBox="0 0 48 48" role="img">
         <defs>
-          <linearGradient id="brand-gradient" x1="5" y1="4" x2="43" y2="45">
+          <linearGradient id="brand-a" x1="7" y1="39" x2="26" y2="8">
             <stop stopColor="#42d392" />
-            <stop offset=".52" stopColor="#4fc3f7" />
-            <stop offset="1" stopColor="#f0bd4e" />
+            <stop offset="1" stopColor="#4fc3f7" />
           </linearGradient>
         </defs>
-        <path d="M11 35 22 9l4 10h9l5 16h-7l-3-9H18l-3 9Z" fill="url(#brand-gradient)" />
-        <circle cx="11" cy="35" r="3.2" fill="#42d392" />
-        <circle cx="22" cy="9" r="3.2" fill="#4fc3f7" />
-        <circle cx="40" cy="35" r="3.2" fill="#f0bd4e" />
-        <path d="M18 26h12" stroke="#061a23" strokeWidth="2.5" strokeLinecap="round" />
+        <path
+          d="M7.5 38 18.5 9.5 29 38M12.2 28h12.6"
+          fill="none"
+          stroke="url(#brand-a)"
+          strokeWidth="4.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M27 38V11h7.2c5.3 0 8.3 2.9 8.3 7.2 0 4.4-3.2 7.2-8.5 7.2h-7M35 25.4 43 38"
+          fill="none"
+          stroke="#f0bd4e"
+          strokeWidth="3.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <circle cx="7.5" cy="38" r="2.3" fill="#42d392" />
+        <circle cx="18.5" cy="9.5" r="2.3" fill="#4fc3f7" />
+        <circle cx="43" cy="38" r="2.3" fill="#f0bd4e" />
       </svg>
     </span>
   );
@@ -496,7 +509,7 @@ export default function Home() {
           <div className="timeline">
             <article>
               <div className="timeline-date">2025 · 2026</div>
-              <div>
+              <div className="timeline-copy">
                 <p className="timeline-org">Air Force Research Laboratory</p>
                 <h3>RI Intern · Secure Processor Verification</h3>
                 <p>
@@ -512,10 +525,20 @@ export default function Home() {
                   <span>Waveform Analysis</span>
                 </div>
               </div>
+              <figure className="experience-visual">
+                <img
+                  src="/images/experience/secure-processor-verification.jpg"
+                  alt="Abstract secure processor verification with circuit routes and waveform traces"
+                />
+                <figcaption>
+                  <span>Verification layer</span>
+                  Assembly tests · execution traces · security checks
+                </figcaption>
+              </figure>
             </article>
             <article>
               <div className="timeline-date">Summer 2024</div>
-              <div>
+              <div className="timeline-copy">
                 <p className="timeline-org">Farmingdale State College · SURI</p>
                 <h3>Undergraduate Cybersecurity Researcher</h3>
                 <p>
@@ -531,6 +554,16 @@ export default function Home() {
                   <span>Research</span>
                 </div>
               </div>
+              <figure className="experience-visual">
+                <img
+                  src="/images/experience/cybersecurity-research.jpg"
+                  alt="Abstract machine learning network anomaly detection visualization"
+                />
+                <figcaption>
+                  <span>Research focus</span>
+                  Network anomalies · machine learning · responsible AI
+                </figcaption>
+              </figure>
             </article>
           </div>
         </div>

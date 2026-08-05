@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   title,
   description,
   icons: {
-    icon: "/images/profile/abdur-rehman.png",
-    shortcut: "/images/profile/abdur-rehman.png",
+    icon: "/brand-mark.svg",
+    shortcut: "/brand-mark.svg",
   },
   openGraph: {
     title,

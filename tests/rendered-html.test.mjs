@@ -57,6 +57,19 @@ test("ships portfolio assets and absolute social metadata", async () => {
     access(new URL("../public/images/urdu-seekho/dashboard.png", import.meta.url)),
     access(new URL("../public/images/logitruck/dashboard-demo.png", import.meta.url)),
     access(new URL("../public/videos/urdu-seekho-demo.mp4", import.meta.url)),
+    access(new URL("../public/brand-mark.svg", import.meta.url)),
+    access(
+      new URL(
+        "../public/images/experience/secure-processor-verification.jpg",
+        import.meta.url,
+      ),
+    ),
+    access(
+      new URL(
+        "../public/images/experience/cybersecurity-research.jpg",
+        import.meta.url,
+      ),
+    ),
   ]);
 
   assert.match(layout, /https:\/\/rehman20052\.github\.io/);
