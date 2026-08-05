@@ -10,10 +10,6 @@ export const metadata: Metadata = {
   metadataBase: new URL(origin),
   title,
   description,
-  icons: {
-    icon: "/brand-mark.svg",
-    shortcut: "/brand-mark.svg",
-  },
   openGraph: {
     title,
     description,

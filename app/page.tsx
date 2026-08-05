@@ -88,40 +88,6 @@ const logiScreens = [
   },
 ] satisfies GalleryImage[];
 
-function BrandMark() {
-  return (
-    <span className="brand-mark" aria-hidden="true">
-      <svg viewBox="0 0 48 48" role="img">
-        <defs>
-          <linearGradient id="brand-a" x1="7" y1="39" x2="26" y2="8">
-            <stop stopColor="#42d392" />
-            <stop offset="1" stopColor="#4fc3f7" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M7.5 38 18.5 9.5 29 38M12.2 28h12.6"
-          fill="none"
-          stroke="url(#brand-a)"
-          strokeWidth="4.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M27 38V11h7.2c5.3 0 8.3 2.9 8.3 7.2 0 4.4-3.2 7.2-8.5 7.2h-7M35 25.4 43 38"
-          fill="none"
-          stroke="#f0bd4e"
-          strokeWidth="3.6"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <circle cx="7.5" cy="38" r="2.3" fill="#42d392" />
-        <circle cx="18.5" cy="9.5" r="2.3" fill="#4fc3f7" />
-        <circle cx="43" cy="38" r="2.3" fill="#f0bd4e" />
-      </svg>
-    </span>
-  );
-}
-
 export default function Home() {
   const [gallery, setGallery] = useState<{
     items: GalleryImage[];
@@ -183,8 +149,8 @@ export default function Home() {
     <main id="top">
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Abdur Rehman, home">
-          <BrandMark />
           <span>Abdur Rehman</span>
+          <small>Portfolio</small>
         </a>
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
@@ -623,7 +589,6 @@ export default function Home() {
 
       <footer>
         <div className="footer-brand">
-          <BrandMark />
           <div>
             <strong>Abdur Rehman</strong>
             <span>Software · Security · Systems</span>
