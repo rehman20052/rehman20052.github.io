@@ -450,7 +450,7 @@ export default function Home() {
             <div className="project-links">
               <a
                 className="text-link"
-                href="https://github.com/rehman20052/LazyChef"
+                href="https://github.com/rehman20052/LazyChef-App"
                 target="_blank"
                 rel="noreferrer"
               >
