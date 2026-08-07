@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og.png",
-        width: 1672,
-        height: 941,
+        width: 1200,
+        height: 630,
         alt: "Abdur Rehman — Software, Security, and Systems",
       },
     ],
